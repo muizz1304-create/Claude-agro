@@ -1,0 +1,46 @@
+<template>
+  <style>
+#root { position:absolute; inset:0; font-family:'Montserrat',sans-serif; color:#fff; overflow:visible; }
+.card { position:absolute; left:60px; width:960px; top:230px; background:rgba(9,28,20,.88);
+  border-radius:44px; padding:40px 46px 44px; box-shadow:0 30px 70px rgba(0,0,0,.45);
+  border:2px solid rgba(255,255,255,.10); box-sizing:border-box; }
+.tag { display:inline-block; padding:12px 28px 12px; border-radius:999px; font-weight:800;
+  font-size:32px; letter-spacing:.08em; text-transform:uppercase; color:#0B1F17; background:#3DDC84; }
+.tag.red { background:#E63946; color:#fff; }
+.tag.amber { background:#FFB703; }
+.tag.yellow { background:#FFE14D; }
+.h1 { font-weight:900; font-size:78px; line-height:1.02; letter-spacing:-.015em; margin-top:22px; }
+.row { display:flex; align-items:center; gap:24px; font-size:46px; font-weight:700; line-height:1.15; margin-top:28px; }
+.ico { width:66px; height:66px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; }
+.ico svg { width:38px; height:38px; }
+.ok { background:#22B455; } .no { background:#E63946; } .drop { background:#4CC9F0; }
+.big { position:absolute; left:40px; right:40px; text-align:center; font-weight:900; line-height:1.0;
+  letter-spacing:-.02em; paint-order:stroke fill; -webkit-text-stroke:14px rgba(0,0,0,.85);
+  text-shadow:0 10px 30px rgba(0,0,0,.55); }
+.hl { color:#FFE14D; } .red { color:#E63946; } .grn { color:#3DDC84; }
+.blk { display:inline-block; }
+.scrim-top { position:absolute; left:0; top:0; width:1080px; height:1150px;
+  background:linear-gradient(180deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,0) 100%); }
+
+#bulan-tag { position:absolute; left:60px; top:230px; }
+#bulan-n { top:300px; font-size:260px; color:#FFE14D; }
+#bulan-u { top:540px; font-size:110px; }
+#bulan-s { position:absolute; left:0; right:0; top:690px; text-align:center; }
+#bulan-s span { display:inline-block; background:rgba(9,28,20,.88); font-weight:800; font-size:46px; padding:14px 30px; border-radius:20px; }
+</style>
+  <div id="root" data-composition-id="bulan" data-width="1080" data-height="1920" data-layout-allow-overlap>
+<div class="scrim-top"></div><div id="bulan-tag" class="tag">Peringkat 2</div>
+<div id="bulan-n" class="big">9–10</div><div id="bulan-u" class="big">BULAN</div>
+<div id="bulan-s"><span>Pasu 14 cm · masih boleh bertahan</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(".scrim-top",{opacity:0},{opacity:1,duration:.3},0);
+    tl.fromTo("#bulan-tag",{opacity:0,x:-80,filter:"blur(8px)"},{opacity:1,x:0,filter:"blur(0px)",duration:0.42,ease:"expo.out"},0.05);
+    tl.fromTo("#bulan-n",{opacity:0,scale:1.5},{opacity:1,scale:1,duration:0.4,ease:"expo.out"},5.633);
+    tl.fromTo("#bulan-u",{opacity:0,filter:"blur(10px)",y:0},{opacity:1,filter:"blur(0px)",y:0,duration:0.2,ease:"power4.out"},5.883);
+    tl.fromTo("#bulan-s",{opacity:0,y:30},{opacity:1,y:0,duration:0.45,ease:"expo.out"},7.12);
+    tl.to("#bulan-tag,#bulan-n,#bulan-u,#bulan-s,.scrim-top",{opacity:0,filter:"blur(8px)",duration:0.22,ease:"power2.in"},8.95);
+    window.__timelines["bulan"] = tl;
+  </script>
+</template>

@@ -1,0 +1,60 @@
+<template>
+  <style>
+#root { position:absolute; inset:0; font-family:'Montserrat',sans-serif; color:#fff; overflow:visible; }
+.card { position:absolute; left:60px; width:960px; top:230px; background:rgba(9,28,20,.88);
+  border-radius:44px; padding:40px 46px 44px; box-shadow:0 30px 70px rgba(0,0,0,.45);
+  border:2px solid rgba(255,255,255,.10); box-sizing:border-box; }
+.tag { display:inline-block; padding:12px 28px 12px; border-radius:999px; font-weight:800;
+  font-size:32px; letter-spacing:.08em; text-transform:uppercase; color:#0B1F17; background:#3DDC84; }
+.tag.red { background:#E63946; color:#fff; }
+.tag.amber { background:#FFB703; }
+.tag.yellow { background:#FFE14D; }
+.h1 { font-weight:900; font-size:78px; line-height:1.02; letter-spacing:-.015em; margin-top:22px; }
+.row { display:flex; align-items:center; gap:24px; font-size:46px; font-weight:700; line-height:1.15; margin-top:28px; }
+.ico { width:66px; height:66px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; }
+.ico svg { width:38px; height:38px; }
+.ok { background:#22B455; } .no { background:#E63946; } .drop { background:#4CC9F0; }
+.big { position:absolute; left:40px; right:40px; text-align:center; font-weight:900; line-height:1.0;
+  letter-spacing:-.02em; paint-order:stroke fill; -webkit-text-stroke:14px rgba(0,0,0,.85);
+  text-shadow:0 10px 30px rgba(0,0,0,.55); }
+.hl { color:#FFE14D; } .red { color:#E63946; } .grn { color:#3DDC84; }
+.blk { display:inline-block; }
+.scrim-top { position:absolute; left:0; top:0; width:1080px; height:1150px;
+  background:linear-gradient(180deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,0) 100%); }
+
+#bk-c { padding:34px 44px 40px; }
+#bk-flow { display:flex; align-items:center; justify-content:center; gap:26px; margin-top:26px; }
+.bk-p { font-weight:900; font-size:70px; padding:12px 34px 16px; border-radius:24px; }
+#bk-a { background:rgba(255,255,255,.12); } #bk-b { background:#3DDC84; color:#0B1F17; }
+#bk-ar { font-weight:900; font-size:80px; color:#FFE14D; }
+#bk-h { position:absolute; left:60px; top:230px; width:960px; box-sizing:border-box; padding:30px 40px 34px; background:rgba(9,28,20,.9); border-radius:40px; }
+#bk-h .row { font-size:52px; margin-top:20px; }
+</style>
+  <div id="root" data-composition-id="bukti" data-width="1080" data-height="1920" data-layout-allow-overlap>
+<div id="bk-c" class="card"><div class="tag yellow">Bukti · lepas repot</div>
+  <div id="bk-flow"><div id="bk-a" class="bk-p">14 cm</div><div id="bk-ar">→</div><div id="bk-b" class="bk-p">20 cm</div></div></div>
+<div id="bk-h"><div class="tag">Hasilnya</div>
+  <div id="bk-r0" class="row"><div class="ico ok"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Keluar bunga baru</div>
+  <div id="bk-r1" class="row"><div class="ico ok"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Daun lebih besar</div>
+  <div id="bk-r2" class="row"><div class="ico ok"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Lebih cantik</div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#bk-c",{opacity:0,y:-40,scale:.94,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"expo.out"},0.0);
+    tl.fromTo("#bk-ar",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#bk-b",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#bk-h",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#bk-r0",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#bk-r1",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#bk-r2",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#bk-ar",{opacity:0,x:-40,filter:"blur(8px)"},{opacity:1,x:0,filter:"blur(0px)",duration:0.3,ease:"expo.out",immediateRender:false},3.777);
+    tl.fromTo("#bk-b",{opacity:0,scale:0.6},{opacity:1,scale:1,duration:0.42,ease:"back.out(1.8)",immediateRender:false},4.027);
+    tl.to("#bk-c",{opacity:0,filter:"blur(8px)",duration:0.2,ease:"power2.in"},5.867);
+    tl.fromTo("#bk-h",{opacity:0,y:-40,scale:.94,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"expo.out",immediateRender:false},6.117);
+    tl.fromTo("#bk-r0",{opacity:0,scale:0.7},{opacity:1,scale:1,duration:0.4,ease:"back.out(1.8)",immediateRender:false},11.133);
+    tl.fromTo("#bk-r1",{opacity:0,scale:0.7},{opacity:1,scale:1,duration:0.4,ease:"back.out(1.8)",immediateRender:false},12.4);
+    tl.fromTo("#bk-r2",{opacity:0,scale:0.7},{opacity:1,scale:1,duration:0.4,ease:"back.out(1.8)",immediateRender:false},14.453);
+    tl.to("#bk-h",{opacity:0,filter:"blur(8px)",duration:0.22,ease:"power2.in"},14.85);
+    window.__timelines["bukti"] = tl;
+  </script>
+</template>

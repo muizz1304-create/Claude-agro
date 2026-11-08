@@ -1,0 +1,66 @@
+<template>
+  <style>
+#root { position:absolute; inset:0; font-family:'Montserrat',sans-serif; color:#fff; overflow:visible; }
+.card { position:absolute; left:60px; width:960px; top:230px; background:rgba(9,28,20,.88);
+  border-radius:44px; padding:40px 46px 44px; box-shadow:0 30px 70px rgba(0,0,0,.45);
+  border:2px solid rgba(255,255,255,.10); box-sizing:border-box; }
+.tag { display:inline-block; padding:12px 28px 12px; border-radius:999px; font-weight:800;
+  font-size:32px; letter-spacing:.08em; text-transform:uppercase; color:#0B1F17; background:#3DDC84; }
+.tag.red { background:#E63946; color:#fff; }
+.tag.amber { background:#FFB703; }
+.tag.yellow { background:#FFE14D; }
+.h1 { font-weight:900; font-size:78px; line-height:1.02; letter-spacing:-.015em; margin-top:22px; }
+.row { display:flex; align-items:center; gap:24px; font-size:46px; font-weight:700; line-height:1.15; margin-top:28px; }
+.ico { width:66px; height:66px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; }
+.ico svg { width:38px; height:38px; }
+.ok { background:#22B455; } .no { background:#E63946; } .drop { background:#4CC9F0; }
+.big { position:absolute; left:40px; right:40px; text-align:center; font-weight:900; line-height:1.0;
+  letter-spacing:-.02em; paint-order:stroke fill; -webkit-text-stroke:14px rgba(0,0,0,.85);
+  text-shadow:0 10px 30px rgba(0,0,0,.55); }
+.hl { color:#FFE14D; } .red { color:#E63946; } .grn { color:#3DDC84; }
+.blk { display:inline-block; }
+.scrim-top { position:absolute; left:0; top:0; width:1080px; height:1150px;
+  background:linear-gradient(180deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,0) 100%); }
+
+#ups-art { display:flex; align-items:flex-end; justify-content:center; gap:30px; margin-top:20px; height:300px; }
+#ups-arrow { font-weight:900; font-size:110px; color:#FFE14D; padding-bottom:70px; }
+</style>
+  <div id="root" data-composition-id="upsize" data-width="1080" data-height="1920" data-layout-allow-overlap>
+<div id="ups-c" class="card"><div class="tag">Masa untuk</div><div class="h1">UPSIZE <span class="grn">PASU</span></div>
+  <div id="ups-art"><div id="ups-p1"><svg width="170" height="170" viewBox="0 0 300 300" style="overflow:visible">
+  <defs><clipPath id="u1-clip"><path d="M48 74 L252 74 L228 276 L72 276 Z"/></clipPath></defs>
+  <path d="M48 74 L252 74 L228 276 L72 276 Z" fill="#5B3A29"/>
+  
+  <path d="M30 52 L270 52 L264 82 L36 82 Z" fill="#D9573B"/>
+  <path d="M48 82 L252 82 L228 280 L72 280 Z" fill="none" stroke="#D9573B" stroke-width="16" stroke-linejoin="round"/>
+  
+</svg></div><div id="ups-arrow">→</div><div id="ups-p2"><svg width="290" height="290" viewBox="0 0 300 300" style="overflow:visible">
+  <defs><clipPath id="u2-clip"><path d="M48 74 L252 74 L228 276 L72 276 Z"/></clipPath></defs>
+  <path d="M48 74 L252 74 L228 276 L72 276 Z" fill="#5B3A29"/>
+  
+  <path d="M30 52 L270 52 L264 82 L36 82 Z" fill="#D9573B"/>
+  <path d="M48 82 L252 82 L228 280 L72 280 Z" fill="none" stroke="#D9573B" stroke-width="16" stroke-linejoin="round"/>
+  
+</svg></div></div>
+  <div id="ups-r0" class="row"><div class="ico no"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/></svg></div>Akar dah mula penuh</div>
+  <div id="ups-r1" class="row"><div class="ico ok"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Akar baru boleh berkembang</div>
+  <div id="ups-r2" class="row"><div class="ico ok"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Teroka media yang baru</div>
+</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#ups-c",{opacity:0,y:-40,scale:.94,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"expo.out"},0.0);
+    tl.fromTo("#ups-p2",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#ups-arrow",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#ups-r0",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#ups-r1",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#ups-r2",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#ups-arrow",{opacity:0,x:-40,filter:"blur(8px)"},{opacity:1,x:0,filter:"blur(0px)",duration:0.3,ease:"expo.out",immediateRender:false},2.267);
+    tl.fromTo("#ups-p2",{opacity:0,scale:0.4},{opacity:1,scale:1,duration:0.5,ease:"back.out(1.8)",immediateRender:false},2.417);
+    tl.fromTo("#ups-r0",{opacity:0,x:-80,filter:"blur(8px)"},{opacity:1,x:0,filter:"blur(0px)",duration:0.42,ease:"expo.out",immediateRender:false},4.407);
+    tl.fromTo("#ups-r1",{opacity:0,x:-80,filter:"blur(8px)"},{opacity:1,x:0,filter:"blur(0px)",duration:0.42,ease:"expo.out",immediateRender:false},6.62);
+    tl.fromTo("#ups-r2",{opacity:0,x:-80,filter:"blur(8px)"},{opacity:1,x:0,filter:"blur(0px)",duration:0.42,ease:"expo.out",immediateRender:false},8.5);
+    tl.to("#ups-c",{opacity:0,filter:"blur(8px)",duration:0.22,ease:"power2.in"},9.95);
+    window.__timelines["upsize"] = tl;
+  </script>
+</template>

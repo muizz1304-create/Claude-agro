@@ -1,0 +1,56 @@
+<template>
+  <style>
+#root { position:absolute; inset:0; font-family:'Montserrat',sans-serif; color:#fff; overflow:visible; }
+.card { position:absolute; left:60px; width:960px; top:230px; background:rgba(9,28,20,.88);
+  border-radius:44px; padding:40px 46px 44px; box-shadow:0 30px 70px rgba(0,0,0,.45);
+  border:2px solid rgba(255,255,255,.10); box-sizing:border-box; }
+.tag { display:inline-block; padding:12px 28px 12px; border-radius:999px; font-weight:800;
+  font-size:32px; letter-spacing:.08em; text-transform:uppercase; color:#0B1F17; background:#3DDC84; }
+.tag.red { background:#E63946; color:#fff; }
+.tag.amber { background:#FFB703; }
+.tag.yellow { background:#FFE14D; }
+.h1 { font-weight:900; font-size:78px; line-height:1.02; letter-spacing:-.015em; margin-top:22px; }
+.row { display:flex; align-items:center; gap:24px; font-size:46px; font-weight:700; line-height:1.15; margin-top:28px; }
+.ico { width:66px; height:66px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; }
+.ico svg { width:38px; height:38px; }
+.ok { background:#22B455; } .no { background:#E63946; } .drop { background:#4CC9F0; }
+.big { position:absolute; left:40px; right:40px; text-align:center; font-weight:900; line-height:1.0;
+  letter-spacing:-.02em; paint-order:stroke fill; -webkit-text-stroke:14px rgba(0,0,0,.85);
+  text-shadow:0 10px 30px rgba(0,0,0,.55); }
+.hl { color:#FFE14D; } .red { color:#E63946; } .grn { color:#3DDC84; }
+.blk { display:inline-block; }
+.scrim-top { position:absolute; left:0; top:0; width:1080px; height:1150px;
+  background:linear-gradient(180deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,0) 100%); }
+
+#hook-l1 { top:300px; font-size:66px; color:#FFF4E0; }
+#hook-l2 { top:390px; font-size:94px; white-space:nowrap; left:0; right:0; }
+#hook-l3w { position:absolute; left:0; right:0; top:520px; text-align:center; }
+#hook-l3 { display:inline-block; background:#E63946; color:#fff; font-weight:900; font-size:132px;
+  padding:6px 40px 14px; border-radius:26px; letter-spacing:-.02em; box-shadow:0 18px 50px rgba(230,57,70,.55); }
+#hook-flash { position:absolute; inset:0; background:radial-gradient(ellipse at center, rgba(230,57,70,0) 40%, rgba(230,57,70,.55) 100%); opacity:0; }
+</style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920" data-layout-allow-overlap>
+<div class="scrim-top"></div><div id="hook-flash"></div>
+<div id="hook-l1" class="big">SALAH PILIH PASU?</div>
+<div id="hook-l2" class="big">AKAR STRAWBERRY</div>
+<div id="hook-l3w"><div id="hook-l3">BOLEH MATI!</div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#hook-l1",{opacity:1},{opacity:1,duration:.01},0);
+    tl.fromTo("#hook-l3",{scale:1},{scale:1.16,duration:.09,ease:"power2.out"},1.613);
+    tl.to("#hook-l3",{scale:1,duration:.35,ease:"elastic.out(1,0.5)"},1.703);
+    tl.to("#hook-l3w",{x:14,duration:.035,ease:"none"},1.613);
+    tl.to("#hook-l3w",{x:-12,duration:.035,ease:"none"},1.648);
+    tl.to("#hook-l3w",{x:9,duration:.035,ease:"none"},1.683);
+    tl.to("#hook-l3w",{x:-6,duration:.035,ease:"none"},1.718);
+    tl.to("#hook-l3w",{x:3,duration:.035,ease:"none"},1.753);
+    tl.to("#hook-l3w",{x:0,duration:.035,ease:"none"},1.788);
+    tl.fromTo("#hook-flash",{opacity:0},{opacity:1,duration:.06},1.613);
+    tl.to("#hook-flash",{opacity:0,duration:.4},1.693);
+    tl.fromTo("#hook-l2",{scale:1},{scale:1.06,duration:.09,ease:"power2.out"},0.573);
+    tl.to("#hook-l2",{scale:1,duration:.35,ease:"elastic.out(1,0.5)"},0.663);
+    tl.to("#hook-l1,#hook-l2,#hook-l3w",{opacity:0,filter:"blur(8px)",duration:0.18,ease:"power2.in"},1.933);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>
