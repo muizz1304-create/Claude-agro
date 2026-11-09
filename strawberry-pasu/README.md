@@ -49,9 +49,14 @@ dalam HyperFrames Studio (`npx hyperframes preview`).
 
 ## Muzik latar
 
-Belum ada muzik latar (akaun HeyGen belum log masuk, jadi katalog muzik tak dapat diakses).
-Untuk tambah: `npx hyperframes auth login`, kemudian
-`npx hyperframes media-use resolve --type bgm --intent "lofi santai, akustik, 90 bpm" --project .`
-dan letak sebagai `<audio>` pada volume ~0.12 di bawah suara.
+Trek `2a2b3177` dari katalog muzik HeyGen ("Upbeat, happy, acoustic guitar background music,
+suitable for gardening tutorial", 120 bpm, tanpa vokal), asal 120 s: `assets/bgm/source-2a2b3177.mp3`.
+
+- `assets/bgm/bed.mp3`: lagu dipanjangkan ke 148 s dengan melompat balik 16 bar (32 s) pada
+  88.3 s, tepat pada beat, crossfade 60 ms, fade-out 1.8 s di hujung.
+- Volume (lane `data-automation` pada `<audio id="bgm">`): 0.30 semasa hook, turun ke 0.11 di
+  bawah suara (~13 dB lebih perlahan daripada suara), naik semula ke 0.30 pada kad penutup.
+- Untuk tukar lagu: `heygen audio sounds list --query "..." --type music`, kemudian ganti
+  `bed.mp3` dan ubah `BED` / `pts` dalam `tools/build.py`.
 
 SFX: lihat `assets/sfx/CREDITS.md`. Gambar akar: dibekalkan oleh pemilik dalam folder Drive.

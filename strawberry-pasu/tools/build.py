@@ -759,6 +759,17 @@ for i, (name, t, vol) in enumerate(sorted(sfx, key=lambda x: x[1])):
     sfx_html.append(f'      <audio id="sfx{i}" class="clip" src="assets/sfx/{name}.mp3" data-start="{st:.3f}"'
                     f' data-media-start="{ms:.3f}"{dur_attr} data-volume="{vol}" data-track-index="{3 + i % 6}"></audio>')
 
+# =============================================================== MUSIC BED
+# HeyGen catalog track 2a2b3177 (120 bpm acoustic guitar), looped back 16 bars at 88.3 s
+# into assets/bgm/bed.mp3. Louder under the hook and the end card, ducked under the voice.
+BED = 0.11
+pts = [(0, 0.30), (E("hook") - 0.05, 0.30), (E("hook") + 0.35, BED),
+       (E("tq") - 0.25, BED), (E("tq") + 0.5, 0.30), (DUR, 0.30)]
+lane = json.dumps({"version": 1, "lanes": [{"target": "volume",
+       "points": [{"t": round(t, 3), "v": v} for t, v in pts]}]}, separators=(",", ":"))
+bgm_html = (f"      <audio id=\"bgm\" class=\"clip\" src=\"assets/bgm/bed.mp3\" data-start=\"0\" "
+            f"data-duration=\"{DUR:.3f}\" data-track-index=\"9\" data-automation='{lane}'></audio>")
+
 # =============================================================== INDEX
 hosts = []
 for sc in scenes:
@@ -789,6 +800,7 @@ index = f'''<!doctype html>
 {chr(10).join(hosts)}
       <div id="captions" data-composition-id="captions" data-composition-src="compositions/captions.html" data-start="0"
         data-duration="{DUR:.3f}" data-track-index="2" data-track-kind="captions" data-width="{W}" data-height="{H}" style="z-index:20"></div>
+{bgm_html}
 {chr(10).join(sfx_html)}
     </div>
     <script>
