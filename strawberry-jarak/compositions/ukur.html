@@ -1,0 +1,57 @@
+<template>
+  <style>
+#root { position:absolute; inset:0; font-family:'Montserrat',sans-serif; color:#fff; overflow:visible; }
+.card { position:absolute; left:60px; width:960px; top:230px; background:rgba(9,28,20,.88);
+  border-radius:44px; padding:40px 46px 44px; box-shadow:0 30px 70px rgba(0,0,0,.45);
+  border:2px solid rgba(255,255,255,.10); box-sizing:border-box; }
+.tag { display:inline-block; padding:12px 28px 12px; border-radius:999px; font-weight:800;
+  font-size:32px; letter-spacing:.08em; text-transform:uppercase; color:#0B1F17; background:#3DDC84; }
+.tag.red { background:#E63946; color:#fff; }
+.tag.amber { background:#FFB703; }
+.tag.yellow { background:#FFE14D; }
+.h1 { font-weight:900; font-size:78px; line-height:1.02; letter-spacing:-.015em; margin-top:22px; }
+.row { display:flex; align-items:center; gap:24px; font-size:46px; font-weight:700; line-height:1.15; margin-top:28px; }
+.ico { width:66px; height:66px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; }
+.ico svg { width:38px; height:38px; }
+.ok { background:#22B455; } .no { background:#E63946; } .drop { background:#4CC9F0; }
+.big { position:absolute; left:40px; right:40px; text-align:center; font-weight:900; line-height:1.0;
+  letter-spacing:-.02em; paint-order:stroke fill; -webkit-text-stroke:14px rgba(0,0,0,.85);
+  text-shadow:0 10px 30px rgba(0,0,0,.55); }
+.hl { color:#FFE14D; } .red { color:#E63946; } .grn { color:#3DDC84; }
+.blk { display:inline-block; }
+.scrim-top { position:absolute; left:0; top:0; width:1080px; height:1150px;
+  background:linear-gradient(180deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,0) 100%); }
+
+#uk-tag { position:absolute; left:60px; top:330px; }
+.uk-s { position:absolute; left:60px; right:60px; top:950px; display:flex; align-items:center; gap:22px;
+  background:rgba(9,28,20,.9); border-radius:30px; padding:20px 28px; font-size:44px; font-weight:800; line-height:1.15;
+  box-shadow:0 18px 50px rgba(0,0,0,.45); }
+.uk-n { width:62px; height:62px; border-radius:50%; background:#FFE14D; color:#0B1F17; font-weight:900; font-size:36px;
+  display:flex; align-items:center; justify-content:center; flex:none; }
+.uk-s b { color:#FFE14D; }
+</style>
+  <div id="root" data-composition-id="ukur" data-width="1080" data-height="1920" data-layout-allow-overlap>
+<div id="uk-tag" class="tag yellow">Cara mudah ukur jarak</div>
+<div id="uk-s0" class="uk-s"><div class="uk-n">1</div><span>Guna pasu <b>±14 cm</b> sebagai pembaris</span></div>
+<div id="uk-s1" class="uk-s"><div class="uk-n">2</div><span>Letak di <b>ruang antara</b> pasu</span></div>
+<div id="uk-s2" class="uk-s"><div class="uk-n">3</div><span><b>Tepi bertemu tepi</b> = jarak 14 cm</span></div>
+<div id="uk-s3" class="uk-s"><div class="uk-n">4</div><span>Ulang untuk <b>pasu yang lain</b></span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#uk-tag",{opacity:0,x:-80,filter:"blur(8px)"},{opacity:1,x:0,filter:"blur(0px)",duration:0.42,ease:"expo.out"},0.05);
+    tl.fromTo("#uk-s0",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#uk-s0",{opacity:0,y:40},{opacity:1,y:0,duration:0.4,ease:"expo.out",immediateRender:false},9.64);
+    tl.to("#uk-s0",{opacity:0,filter:"blur(8px)",duration:0.13,ease:"power2.in"},13.33);
+    tl.fromTo("#uk-s1",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#uk-s1",{opacity:0,y:40},{opacity:1,y:0,duration:0.4,ease:"expo.out",immediateRender:false},13.48);
+    tl.to("#uk-s1",{opacity:0,filter:"blur(8px)",duration:0.13,ease:"power2.in"},16.69);
+    tl.fromTo("#uk-s2",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#uk-s2",{opacity:0,y:40},{opacity:1,y:0,duration:0.4,ease:"expo.out",immediateRender:false},16.84);
+    tl.to("#uk-s2",{opacity:0,filter:"blur(8px)",duration:0.13,ease:"power2.in"},19.97);
+    tl.fromTo("#uk-s3",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#uk-s3",{opacity:0,y:40},{opacity:1,y:0,duration:0.4,ease:"expo.out",immediateRender:false},20.12);
+    tl.to("#uk-s3,#uk-tag",{opacity:0,filter:"blur(8px)",duration:0.22,ease:"power2.in"},22.017);
+    window.__timelines["ukur"] = tl;
+  </script>
+</template>

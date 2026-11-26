@@ -1,0 +1,55 @@
+<template>
+  <style>
+#root { position:absolute; inset:0; font-family:'Montserrat',sans-serif; color:#fff; overflow:visible; }
+.card { position:absolute; left:60px; width:960px; top:230px; background:rgba(9,28,20,.88);
+  border-radius:44px; padding:40px 46px 44px; box-shadow:0 30px 70px rgba(0,0,0,.45);
+  border:2px solid rgba(255,255,255,.10); box-sizing:border-box; }
+.tag { display:inline-block; padding:12px 28px 12px; border-radius:999px; font-weight:800;
+  font-size:32px; letter-spacing:.08em; text-transform:uppercase; color:#0B1F17; background:#3DDC84; }
+.tag.red { background:#E63946; color:#fff; }
+.tag.amber { background:#FFB703; }
+.tag.yellow { background:#FFE14D; }
+.h1 { font-weight:900; font-size:78px; line-height:1.02; letter-spacing:-.015em; margin-top:22px; }
+.row { display:flex; align-items:center; gap:24px; font-size:46px; font-weight:700; line-height:1.15; margin-top:28px; }
+.ico { width:66px; height:66px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; }
+.ico svg { width:38px; height:38px; }
+.ok { background:#22B455; } .no { background:#E63946; } .drop { background:#4CC9F0; }
+.big { position:absolute; left:40px; right:40px; text-align:center; font-weight:900; line-height:1.0;
+  letter-spacing:-.02em; paint-order:stroke fill; -webkit-text-stroke:14px rgba(0,0,0,.85);
+  text-shadow:0 10px 30px rgba(0,0,0,.55); }
+.hl { color:#FFE14D; } .red { color:#E63946; } .grn { color:#3DDC84; }
+.blk { display:inline-block; }
+.scrim-top { position:absolute; left:0; top:0; width:1080px; height:1150px;
+  background:linear-gradient(180deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,0) 100%); }
+
+#jk-svg { display:block; margin:40px auto 0; overflow:visible; }
+#jk-nw { position:relative; height:100px; margin-top:6px; }
+#jk-n, #jk-b { position:absolute; left:0; right:0; font-weight:900; font-size:96px; color:#FFE14D; text-align:center; line-height:1; }
+#jk-s { font-weight:700; font-size:38px; text-align:center; opacity:.85; margin-top:10px; }
+</style>
+  <div id="root" data-composition-id="jarak" data-width="1080" data-height="1920" data-layout-allow-overlap>
+<div id="jk-c" class="card" style="top:330px"><div class="tag">Jarak terbaik antara pasu</div>
+  <svg id="jk-svg" width="860" height="250" viewBox="0 -30 860 280">
+    <path d="M60 70 L240 70 L220 230 L80 230 Z" fill="#C8442F"/><rect x="52" y="56" width="196" height="24" rx="6" fill="#D9573B"/><path d="M150 56 C100 0 80 10 90 -10 M150 56 C200 0 230 10 210 -10 M150 56 L150 -20" stroke="#3DDC84" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M620 70 L800 70 L780 230 L640 230 Z" fill="#C8442F"/><rect x="612" y="56" width="196" height="24" rx="6" fill="#D9573B"/><path d="M710 56 C660 0 640 10 650 -10 M710 56 C760 0 790 10 770 -10 M710 56 L710 -20" stroke="#3DDC84" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <g id="jk-ar"><line x1="250" y1="150" x2="610" y2="150" stroke="#FFE14D" stroke-width="8" stroke-dasharray="18 12"/>
+      <path d="M250 150 l24 -16 v32z M610 150 l-24 -16 v32z" fill="#FFE14D"/></g>
+  </svg>
+  <div id="jk-nw"><div id="jk-n">14 cm</div><div id="jk-b">14–20 cm</div></div>
+  <div id="jk-s">ruang kosong antara tepi pasu</div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#jk-c",{opacity:0,y:-40,scale:.94,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"expo.out"},0.02);
+    tl.fromTo("#jk-ar",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#jk-n",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#jk-b",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#jk-s",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#jk-ar",{opacity:0,scaleX:0,transformOrigin:"430px 150px"},{opacity:1,scaleX:1,duration:.45,ease:"power3.out",immediateRender:false},5.22);
+    tl.fromTo("#jk-n",{opacity:0,scale:0.6},{opacity:1,scale:1,duration:0.42,ease:"back.out(1.8)",immediateRender:false},5.52);
+    tl.to("#jk-n",{opacity:0,filter:"blur(8px)",duration:0.08,ease:"power2.in"},9.58);
+    tl.fromTo("#jk-b",{opacity:0,scale:0.7},{opacity:1,scale:1,duration:0.42,ease:"back.out(1.8)",immediateRender:false},9.66);
+    tl.fromTo("#jk-s",{opacity:0,y:20},{opacity:1,y:0,duration:0.4,ease:"expo.out",immediateRender:false},9.96);
+    tl.to("#jk-c",{opacity:0,filter:"blur(8px)",duration:0.22,ease:"power2.in"},9.8);
+    window.__timelines["jarak"] = tl;
+  </script>
+</template>

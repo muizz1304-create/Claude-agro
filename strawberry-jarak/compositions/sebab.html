@@ -1,0 +1,49 @@
+<template>
+  <style>
+#root { position:absolute; inset:0; font-family:'Montserrat',sans-serif; color:#fff; overflow:visible; }
+.card { position:absolute; left:60px; width:960px; top:230px; background:rgba(9,28,20,.88);
+  border-radius:44px; padding:40px 46px 44px; box-shadow:0 30px 70px rgba(0,0,0,.45);
+  border:2px solid rgba(255,255,255,.10); box-sizing:border-box; }
+.tag { display:inline-block; padding:12px 28px 12px; border-radius:999px; font-weight:800;
+  font-size:32px; letter-spacing:.08em; text-transform:uppercase; color:#0B1F17; background:#3DDC84; }
+.tag.red { background:#E63946; color:#fff; }
+.tag.amber { background:#FFB703; }
+.tag.yellow { background:#FFE14D; }
+.h1 { font-weight:900; font-size:78px; line-height:1.02; letter-spacing:-.015em; margin-top:22px; }
+.row { display:flex; align-items:center; gap:24px; font-size:46px; font-weight:700; line-height:1.15; margin-top:28px; }
+.ico { width:66px; height:66px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; }
+.ico svg { width:38px; height:38px; }
+.ok { background:#22B455; } .no { background:#E63946; } .drop { background:#4CC9F0; }
+.big { position:absolute; left:40px; right:40px; text-align:center; font-weight:900; line-height:1.0;
+  letter-spacing:-.02em; paint-order:stroke fill; -webkit-text-stroke:14px rgba(0,0,0,.85);
+  text-shadow:0 10px 30px rgba(0,0,0,.55); }
+.hl { color:#FFE14D; } .red { color:#E63946; } .grn { color:#3DDC84; }
+.blk { display:inline-block; }
+.scrim-top { position:absolute; left:0; top:0; width:1080px; height:1150px;
+  background:linear-gradient(180deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.35) 55%, rgba(0,0,0,0) 100%); }
+
+#sb-c .row { font-size:44px; margin-top:24px; }
+.sb-n { width:58px; height:58px; border-radius:50%; background:#FFE14D; color:#0B1F17; font-weight:900; font-size:34px;
+  display:flex; align-items:center; justify-content:center; flex:none; }
+.sb-i { width:74px; height:74px; flex:none; }
+.sb-i svg { width:74px; height:74px; }
+</style>
+  <div id="root" data-composition-id="sebab" data-width="1080" data-height="1920" data-layout-allow-overlap>
+<div id="sb-c" class="card" style="top:330px"><div class="tag red">Kalau tanam rapat</div><div id="sb-r0" class="row"><div class="sb-n">1</div><div class="sb-i"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="9" fill="#FFB703"/><g stroke="#FFB703" stroke-width="4" stroke-linecap="round"><line x1="24" y1="3" x2="24" y2="9"/><line x1="24" y1="39" x2="24" y2="45"/><line x1="3" y1="24" x2="9" y2="24"/><line x1="39" y1="24" x2="45" y2="24"/><line x1="9" y1="9" x2="13" y2="13"/><line x1="35" y1="35" x2="39" y2="39"/><line x1="9" y1="39" x2="13" y2="35"/><line x1="35" y1="13" x2="39" y2="9"/></g></svg></div><span>Rebut cahaya matahari</span></div><div id="sb-r1" class="row"><div class="sb-n">2</div><div class="sb-i"><svg viewBox="0 0 48 48" fill="none" stroke="#4CC9F0" stroke-width="4.5" stroke-linecap="round"><path d="M4 18h26a6 6 0 1 0-6-6"/><path d="M4 28h34a6 6 0 1 1-6 6"/><path d="M4 38h16"/></svg></div><span>Pengudaraan terhad</span></div><div id="sb-r2" class="row"><div class="sb-n">3</div><div class="sb-i"><svg viewBox="0 0 48 48"><g stroke="#E63946" stroke-width="3.5" stroke-linecap="round"><line x1="10" y1="20" x2="17" y2="23"/><line x1="38" y1="20" x2="31" y2="23"/><line x1="8" y1="30" x2="16" y2="30"/><line x1="40" y1="30" x2="32" y2="30"/><line x1="10" y1="40" x2="17" y2="36"/><line x1="38" y1="40" x2="31" y2="36"/><line x1="20" y1="10" x2="17" y2="5"/><line x1="28" y1="10" x2="31" y2="5"/></g><ellipse cx="24" cy="30" rx="9" ry="12" fill="#E63946"/><circle cx="24" cy="15" r="6" fill="#E63946"/></svg></div><span>Serangga &amp; penyakit mudah merebak</span></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#sb-c",{opacity:0,y:-40,scale:.94,filter:"blur(12px)"},{opacity:1,y:0,scale:1,filter:"blur(0px)",duration:.5,ease:"expo.out"},0.02);
+    tl.fromTo("#sb-r0",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#sb-r0",{opacity:0,x:-80,filter:"blur(8px)"},{opacity:1,x:0,filter:"blur(0px)",duration:0.42,ease:"expo.out",immediateRender:false},3.007);
+    tl.fromTo("#sb-r1",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#sb-r1",{opacity:0,x:-80,filter:"blur(8px)"},{opacity:1,x:0,filter:"blur(0px)",duration:0.42,ease:"expo.out",immediateRender:false},11.907);
+    tl.to("#sb-r0",{opacity:.5,duration:.3},11.907);
+    tl.fromTo("#sb-r2",{opacity:0},{opacity:0,duration:.01},0);
+    tl.fromTo("#sb-r2",{opacity:0,x:-80,filter:"blur(8px)"},{opacity:1,x:0,filter:"blur(0px)",duration:0.42,ease:"expo.out",immediateRender:false},19.887);
+    tl.to("#sb-r1",{opacity:.5,duration:.3},19.887);
+    tl.to("#sb-r0,#sb-r1",{opacity:1,duration:.3},26.827);
+    tl.to("#sb-c",{opacity:0,filter:"blur(8px)",duration:0.22,ease:"power2.in"},26.347);
+    window.__timelines["sebab"] = tl;
+  </script>
+</template>
