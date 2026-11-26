@@ -284,7 +284,7 @@ rows = [("Rebut cahaya matahari", SUN, T("s1", "pertama")),
 rows_html = "".join(f'<div id="sb-r{i}" class="row"><div class="sb-n">{i+1}</div><div class="sb-i">{ico}</div><span>{txt}</span></div>'
                     for i, (txt, ico, _) in enumerate(rows))
 sc.add(f'<div id="sb-c" class="card" style="top:{CARD_TOP}px"><div class="tag red">Kalau tanam rapat</div>{rows_html}</div>')
-sc.cardin("#sb-c", S("s1") + 0.02)
+sc.cardin("#sb-c", T("s1", "pertama") - 0.45)
 for i, (_, _, t) in enumerate(rows):
     sc.tw(f'tl.fromTo("#sb-r{i}",{{opacity:0}},{{opacity:0,duration:.01}},0);')
     sc.slidein(f"#sb-r{i}", t)
@@ -294,7 +294,7 @@ for i, (_, _, t) in enumerate(rows):
 sc.tw(f'tl.to("#sb-r0,#sb-r1",{{opacity:1,duration:.3}},{sc.L(T("s3", "lain"))});')
 sc.out("#sb-c", E("s3") - 0.22)
 scenes.append(sc)
-whoosh(S("s1") + 0.02)
+whoosh(T("s1", "pertama") - 0.45)
 
 # =============================================================== 5. BEST SPACING 14-20 cm (diagram)
 def side_pot(x):
@@ -302,7 +302,7 @@ def side_pot(x):
             f'<rect x="{x-8}" y="56" width="196" height="24" rx="6" fill="#D9573B"/>'
             f'<path d="M{x+90} 56 C{x+40} 0 {x+20} 10 {x+30} -10 M{x+90} 56 C{x+140} 0 {x+170} 10 {x+150} -10 M{x+90} 56 L{x+90} -20" '
             f'stroke="{C["leaf"]}" stroke-width="10" fill="none" stroke-linecap="round"/>')
-sc = Scene("jarak", S("jarak"), E("jarak"), css=f"""
+sc = Scene("jarak", S("jarak"), E("jarak") + 0.8, css=f"""
 #jk-svg {{ display:block; margin:40px auto 0; overflow:visible; }}
 #jk-nw {{ position:relative; height:100px; margin-top:6px; }}
 #jk-n, #jk-b {{ position:absolute; left:0; right:0; font-weight:900; font-size:96px; color:{C['yellow']}; text-align:center; line-height:1; }}
@@ -322,12 +322,13 @@ for s_ in ["#jk-ar", "#jk-n", "#jk-b", "#jk-s"]:
     sc.tw(f'tl.fromTo("{s_}",{{opacity:0}},{{opacity:0,duration:.01}},0);')
 sc.tw(f'tl.fromTo("#jk-ar",{{opacity:0,scaleX:0,transformOrigin:"430px 150px"}},{{opacity:1,scaleX:1,duration:.45,ease:"power3.out"}},{sc.L(t14 - 0.3)});')
 sc.pop("#jk-n", t14)
+t20 = T("jarak", "hinggalah")
 sc.out("#jk-n", t20 - 0.08, 0.08)
 sc.pop("#jk-b", t20, 0.7)
 sc.rise("#jk-s", t20 + 0.3, 0.4, 20)
-sc.out("#jk-c", E("jarak") - 0.2)
+sc.out("#jk-c", E("jarak") + 0.6)
 scenes.append(sc)
-whoosh(S("jarak") + 0.02); S_("pop", t14, 0.5); S_("pop", t20, 0.5)
+whoosh(S("jarak") + 0.02); S_("pop", t14, 0.5); S_("pop", T("jarak", "hinggalah"), 0.5)
 
 # =============================================================== 6. HOW TO MEASURE (steps over the demo)
 sc = Scene("ukur", S("contoh"), E("demo3") + 0.75, css=f"""
@@ -346,7 +347,7 @@ steps = [("Guna pasu <b>±14 cm</b> sebagai pembaris", T("demo1", "ambil", 1)),
 sc.add('<div id="uk-tag" class="tag yellow">Cara mudah ukur jarak</div>')
 for i, (txt, _) in enumerate(steps):
     sc.add(f'<div id="uk-s{i}" class="uk-s"><div class="uk-n">{i+1}</div><span>{txt}</span></div>')
-sc.slidein("#uk-tag", S("contoh") + 0.05)
+sc.slidein("#uk-tag", E("jarak") + 0.85)
 for i, (_, t) in enumerate(steps):
     sc.tw(f'tl.fromTo("#uk-s{i}",{{opacity:0}},{{opacity:0,duration:.01}},0);')
     sc.rise(f"#uk-s{i}", t, 0.4, 40)
@@ -355,7 +356,7 @@ for i, (_, t) in enumerate(steps):
     S_("pop", t, 0.45)
 sc.out(f"#uk-s{len(steps)-1},#uk-tag", E("demo3") + 0.55)
 scenes.append(sc)
-whoosh(S("contoh") + 0.05)
+whoosh(E("jarak") + 0.85)
 
 # =============================================================== 7. WHY? -> CONSEQUENCES
 sc = Scene("akibat", S("kenapa"), E("akibat"), css=f"""
@@ -371,7 +372,7 @@ tq_ = T("kenapa", "kenapa")
 sc.blurin("#ak-q", tq_ - 0.1)
 sc.out("#ak-q", E("kenapa") + 0.25, 0.16)
 sc.tw('tl.fromTo("#ak-c",{opacity:0},{opacity:0,duration:.01},0);')
-sc.cardin("#ak-c", T("akibat", "sebabnya") - 0.2)
+sc.cardin("#ak-c", T("akibat", "tinggi") - 0.5)
 ak = [T("akibat", "tinggi"), T("akibat", "tapi"), T("akibat", "buah") + 0.75]
 for i, t in enumerate(ak):
     sc.tw(f'tl.fromTo("#ak-r{i}",{{opacity:0}},{{opacity:0,duration:.01}},0);')
@@ -379,7 +380,7 @@ for i, t in enumerate(ak):
     S_("click-soft" if i == 0 else "error", t, 0.5 if i == 0 else 0.22)
 sc.out("#ak-c", E("akibat") - 0.22)
 scenes.append(sc)
-S_("pop", tq_, 0.4); whoosh(T("akibat", "sebabnya") - 0.2)
+S_("pop", tq_, 0.4); whoosh(T("akibat", "tinggi") - 0.5)
 
 # =============================================================== 8. SUMMARY
 sc = Scene("rumusan", S("tutup"), E("tutup") + 0.35, css=f"""
